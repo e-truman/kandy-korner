@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Kandy } from './components/KandyKorner';
+import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(
   <React.StrictMode>
+  <BrowserRouter>
     <Kandy />
+  </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
