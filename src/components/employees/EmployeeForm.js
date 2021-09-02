@@ -48,7 +48,7 @@ export const EmployeeForm = () => {
             body: JSON.stringify(newHire) // sends body of reqest. hast to be sent as string. cant be javascript objects
         }
 
-        return fetch("http://localhost:8088/employees?_expand=location", fetchOption)
+        return fetch("http://localhost:8088/employees", fetchOption)
             .then(() => {
                 history.push("/employees") // after you post a ticket, you are redirected to service tickets
             })
@@ -93,7 +93,6 @@ export const EmployeeForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Location</label>
-
                     {
                         locations.map((location) => {
                             return <li>
@@ -106,7 +105,6 @@ export const EmployeeForm = () => {
                                 } type="radio" name="location" value="{location.id}" /> {location.city}
                             </li>
                         })
-
                     }
                 </div>
             </fieldset>
