@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom"
 
 export const EmployeeList = () => {
     const [employees, changeEmployee] = useState([])
-    const [locations, setlocation] = useState("")
     const history = useHistory()
 
     useEffect(
@@ -17,11 +16,6 @@ export const EmployeeList = () => {
         []
     )
 
-    useEffect(() => {
-        const justLocations = employees.map(emp => emp.location)
-        setSpecial(justLocations.join(", "))
-    }, [employees])
-
     return (
         <>
             <button onClick={() => history.push("/employee/hire")}>Hire Employee</button>
@@ -30,7 +24,7 @@ export const EmployeeList = () => {
             {
                 employees.map(
                     (employee) => {
-                        return <p key={`employee--${employee.id}`}>{employee.name} works in {employee.location.city}</p> // every element needs a unique key. serves same purpose as an id attributeused for the rendering of the dom so it knows which element is which
+                        return <p key={`employee--${employee.id}`}>{employee.name} works in {employee.location.city}. {employee.manager ? " They are a manager." : ""}</p> // every element needs a unique key. serves same purpose as an id attributeused for the rendering of the dom so it knows which element is which
                     }
                 )
             }
