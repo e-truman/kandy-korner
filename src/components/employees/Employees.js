@@ -18,13 +18,13 @@ export const EmployeeList = () => {
 
     return (
         <>
-            <button onClick={() => history.push("/employee/hire")}>Hire Employee</button>
+            <button onClick={() => history.push("/hiring")}>Hire Employee</button>
             <h2>Employees</h2>
             
             {
                 employees.map(
                     (employee) => {
-                        return <p key={`employee--${employee.id}`}>{employee.name} works in {employee.location.city}. {employee.manager ? " They are a manager." : ""}</p> // every element needs a unique key. serves same purpose as an id attributeused for the rendering of the dom so it knows which element is which
+                        return <p key={`employee--${employee.id}`}>{employee.name} works in {employee.location?.city}. {employee.manager ? " They are a manager." : ""}</p> // every element needs a unique key. serves same purpose as an id attributeused for the rendering of the dom so it knows which element is which
                     }
                 )
             }
